@@ -1,0 +1,137 @@
+.tab-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header h1,
+.header h6 {
+    margin: 1;
+}
+
+.header h1 {
+    font-size: 24px;
+}
+
+.header h6 {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #666;
+    font-style: italic;
+}
+
+.border {
+    background-color: #f0f0f0; /* Cor de fundo acinzentada */
+    border: 1px solid #fff; /* Borda branca */
+    border-radius: 10px;
+    padding: 50px;
+    margin-top: 20px;
+    width: fit-content;
+    width: 97%; /* Ajuste a largura conforme necessário */
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Estica os itens para ocupar toda a altura vertical */
+}
+
+
+.year-month-container {
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #fff; /* Borda branca */
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 30px; /* Aumenta o espaço acima do conteúdo */
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    width: 240px; /* Largura fixa */
+    height: 600px; /* Altura fixa */
+    margin-bottom: 40px; /* Espaçamento inferior */
+
+    /* Ajustes para separar o conteúdo dentro do container */
+    display: flex;
+    flex-direction: column;
+}
+
+.year {
+    margin-bottom: 25px; /* Espaçamento abaixo do conteúdo "Ano" */
+}
+
+.month {
+    margin-top: 25px; /* Espaçamento acima do conteúdo "Mês" */
+}
+
+
+
+
+
+.ranking {
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #fff; /* Borda branca */
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    width: 1000px; /* Largura fixa */
+    height: 600px; /* Altura fixa */
+    margin-bottom: 20px; /* Espaçamento inferior */
+
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center; /* Alinha texto horizontalmente */
+    
+}
+
+.legend-resume {
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #fff; /* Borda branca */
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    width: 460px; /* Largura fixa */
+    height: 600px; /* Altura fixa */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribui o espaço entre os elementos */
+}
+
+.legend h3, .resume h3 {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin-top: 0; /* Remove margem superior padrão */
+}
+
+.legend h6, .resume h6 {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin-top: 20px; /* Espaço entre "LEGENDA" e "RESUMO" */
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+}
+
+.color-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Espaçamento à direita para separar da descrição */
+    vertical-align: middle;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espaçamento inferior entre cada item */
+}
+
