@@ -26,29 +26,28 @@
 
 .header h1 {
     font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .header h6 {
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 5px;
+    margin-left: 20px;
     color: #666;
     font-style: italic;
 }
 
 .border {
     background-color: #f0f0f0; /* Cor de fundo acinzentada */
-    border: 1px solid #fff; /* Borda branca */
-    border-radius: 10px;
-    padding: 50px;
+    padding: 40px;
     margin-top: 20px;
     width: fit-content;
-    width: 97%; /* Ajuste a largura conforme necessário */
+    width: 95%; /* Ajuste a largura conforme necessário */
     max-width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: stretch; /* Estica os itens para ocupar toda a altura vertical */
+   
 }
-
 
 .year-month-container {
     background-color: #fff; /* Fundo branco */
@@ -57,8 +56,8 @@
     padding: 20px;
     padding-top: 30px; /* Aumenta o espaço acima do conteúdo */
     box-sizing: border-box; /* Garante que o padding não aumente a largura */
-    width: 240px; /* Largura fixa */
-    height: 600px; /* Altura fixa */
+    width: 260px; /* Largura fixa */
+    height: 640px; /* Altura fixa */
     margin-bottom: 40px; /* Espaçamento inferior */
 
     /* Ajustes para separar o conteúdo dentro do container */
@@ -85,7 +84,7 @@
     padding: 20px;
     box-sizing: border-box; /* Garante que o padding não aumente a largura */
     width: 1000px; /* Largura fixa */
-    height: 600px; /* Altura fixa */
+    height: 640px; /* Altura fixa */
     margin-bottom: 20px; /* Espaçamento inferior */
 
     justify-content: center; /* Centraliza horizontalmente */
@@ -99,8 +98,8 @@
     border-radius: 10px;
     padding: 20px;
     box-sizing: border-box; /* Garante que o padding não aumente a largura */
-    width: 460px; /* Largura fixa */
-    height: 600px; /* Altura fixa */
+    width: 470px; /* Largura fixa */
+    height: 640px; /* Altura fixa */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Distribui o espaço entre os elementos */
@@ -113,7 +112,7 @@
 
 .legend h6, .resume h6 {
     text-align: center; /* Centraliza o texto horizontalmente */
-    margin-top: 20px; /* Espaço entre "LEGENDA" e "RESUMO" */
+    margin-top: 10px; /* Espaço entre "LEGENDA" e "RESUMO" */
 }
 
 .legend {
@@ -132,6 +131,5 @@
 .legend div {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* Espaçamento inferior entre cada item */
+    margin-bottom: 08px; /* Espaçamento inferior entre cada item */
 }
-

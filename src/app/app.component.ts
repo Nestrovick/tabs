@@ -4,6 +4,8 @@ import { Tab1DivComponent } from "./tab1-div/tab1-div.component";
 import { Tab2DivComponent } from "./tab2-div/tab2-div.component";
 import { Tab3DivComponent } from "./tab3-div/tab3-div.component";
 import { Tab4DivComponent } from "./tab4-div/tab4-div.component";
+import {Chart, registerables} from 'chart.js';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-root',
