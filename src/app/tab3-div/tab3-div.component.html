@@ -1,1 +1,41 @@
-<p>tab3-div works!</p>
+<div class="tab-container">
+    <div class="container">
+      <div class="header">
+        <h1>Ranking por Federação</h1>
+        <h6>AVALIAÇÕES VEICULARES AMBIENTE-PERCENTUAL DA META ATINGIDA</h6>
+      </div>
+    </div>
+    
+    <div class="border">
+      <div class="year-month-container">
+        <div class="year">
+          <label>Ano</label>
+          <div><input type="radio" name="year" value="2022"> 2022</div>
+          <div><input type="radio" name="year" value="2023"> 2023</div>
+          <div><input type="radio" name="year" value="2024" checked> 2024</div>
+        </div>
+        <div class="month">
+          <label>Mês</label>
+          <div><input type="radio" name="month" value="janeiro" checked> janeiro</div>
+          <div><input type="radio" name="month" value="fevereiro"> fevereiro</div>
+          <div><input type="radio" name="month" value="março"> março</div>
+          <div><input type="radio" name="month" value="abril"> abril</div>
+          <div><input type="radio" name="month" value="maio"> maio</div>
+          <div><input type="radio" name="month" value="junho"> junho</div>
+        </div>
+        <div class="segment">
+          <label>Segmento</label>
+          <div><input type="radio" name="segment" value="segmento1"> Autônomo</div>
+          <div><input type="radio" name="segment" value="segmento2"> Cargas</div>
+          <div><input type="radio" name="segment" value="segmento3"> Misto</div>
+          <div><input type="radio" name="segment" value="segmento4"> Passageiros</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="ranking">
+      <h5>Ranking Geral de Produtividade por Federação</h5>
+      <canvas id="rankingChart" width="400" height="400"></canvas> <!-- ID corrigido -->
+    </div>
+  </div>
+  

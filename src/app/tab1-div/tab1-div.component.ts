@@ -2,7 +2,6 @@ import { Component, AfterViewInit } from '@angular/core';
 import { Chart, ChartConfiguration, ChartData, ChartOptions } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-
 @Component({
   selector: 'app-tab1-div',
   standalone: true,
@@ -13,7 +12,6 @@ export class Tab1DivComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.createChart();
     this.createPercentageChart();
-    
   }
 
   createChart() {
@@ -35,12 +33,12 @@ export class Tab1DivComponent implements AfterViewInit {
         data: [
           203.2, 180.9, 169.5, 156.9, 133.6, 132.2, 132.2, 127.3,
           127.3, 126.1, 123.9, 122.3, 122.0, 119.6, 119.2, 118.5,
-          115.4, 114.5, 101.2, 101.1, 101.1, 101.1, 100.8, 38.9
+          115.4, 114.5, 101.2, 101.1, 101.1, 101.1, 97.1, 38.9
         ],
         backgroundColor: (context) => {
           const value = context.raw as number;
           if (value >= 120) {
-            return '#db3434'; // Vermelho
+            return '#f0ce60'; // Amarelo
           } else if (value >= 100) {
             return '#1c5de9'; // Azul
           } else if (value >= 50) {
@@ -49,8 +47,6 @@ export class Tab1DivComponent implements AfterViewInit {
             return '#a12ac5'; // Roxo
           }
         },
-        borderColor: '#000',
-        borderWidth: 1
       }]
     };
 
@@ -97,6 +93,8 @@ export class Tab1DivComponent implements AfterViewInit {
   }
 
   createPercentageChart() {
+    Chart.register(ChartDataLabels);
+
     const ctx = document.getElementById('percentageChart') as HTMLCanvasElement;
 
     const data: ChartData<'doughnut'> = {
@@ -104,7 +102,7 @@ export class Tab1DivComponent implements AfterViewInit {
       datasets: [
         {
           data: [95.8, 4.2], // Representando as porcentagens
-          backgroundColor: ['#1c5de9', '#db3434'],
+          backgroundColor: ['#f0ce60', '#a12ac5'],
           borderWidth: 0,
         },
       ],
@@ -120,9 +118,9 @@ export class Tab1DivComponent implements AfterViewInit {
           display: false,
         },
         datalabels: {
-          color: '#fff',
-          formatter: (value: number, context: any) => {
-            return value === 95.8 ? '95.8%' : '';
+          color: '#000',
+          formatter: (value: number) => {
+            return '';
           },
           font: {
             size: 12,
@@ -132,10 +130,25 @@ export class Tab1DivComponent implements AfterViewInit {
       },
     };
 
+    const percentagePlugin = {
+      id: 'percentagePlugin',
+      beforeDraw: (chart: any) => {
+        const { ctx, chartArea: { left, right, bottom } } = chart;
+        ctx.save();
+        ctx.font = '12px Arial';
+        ctx.fillStyle = '#000';
+        ctx.textAlign = 'center';
+        ctx.fillText('0,0%', left + 90, bottom - 5); // Ajuste a posição conforme necessário
+        ctx.fillText('100,0%', right - 90, bottom - 5); // Ajuste a posição conforme necessário
+        ctx.restore();
+      }
+    };
+
     new Chart(ctx, {
       type: 'doughnut',
       data,
       options,
+      plugins: [ChartDataLabels, percentagePlugin] // Adicione o plugin personalizado aqui
     } as ChartConfiguration<'doughnut'>);
-}
+  }
 }

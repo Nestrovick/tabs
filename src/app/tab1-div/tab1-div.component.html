@@ -16,18 +16,12 @@
         </div>
         <div class="month">
           <label>Mês</label>
-          <div><input type="radio" name="month" value="janeiro"> janeiro</div>
+          <div><input type="radio" name="month" value="janeiro" checked> janeiro</div>
           <div><input type="radio" name="month" value="fevereiro"> fevereiro</div>
           <div><input type="radio" name="month" value="março"> março</div>
           <div><input type="radio" name="month" value="abril"> abril</div>
           <div><input type="radio" name="month" value="maio"> maio</div>
-          <div><input type="radio" name="month" value="junho" checked> junho</div>
-          <div><input type="radio" name="month" value="julho"> julho</div>
-          <div><input type="radio" name="month" value="agosto"> agosto</div>
-          <div><input type="radio" name="month" value="setembro"> setembro</div>
-          <div><input type="radio" name="month" value="outubro"> outubro</div>
-          <div><input type="radio" name="month" value="novembro"> novembro</div>
-          <div><input type="radio" name="month" value="dezembro"> dezembro</div>
+          <div><input type="radio" name="month" value="junho"> junho</div>
         </div>
       </div>
 
@@ -39,7 +33,7 @@
       <div class="legend-resume">
         <div class="legend">
           <h6>LEGENDA</h6>
-          <div><span class="color-box" style="background-color: #db3434;"></span> Atingiu 120% ou mais da meta</div>
+          <div><span class="color-box" style="background-color: #f0ce60;"></span> Atingiu 120% ou mais da meta</div>
           <div><span class="color-box" style="background-color: #1c5de9;"></span> Atingiu entre 100% e 119.9% da meta</div>
           <div><span class="color-box" style="background-color: #a5e01b;"></span> Atingiu entre 50% e 99.9% da meta</div>
           <div><span class="color-box" style="background-color: #a12ac5;"></span> Atingiu entre 0% e 49.9% da meta</div>
@@ -55,10 +49,11 @@
         
         <div class="percentage-chart">
             <canvas id="percentageChart"></canvas>
+            <div class="percentage-text">
+              <div class="percentage-value">95.8%</div>
+              <div class="percentage-label">  23 das 24 Federações (95.8%) atingiram ou superaram a meta vigente.</div>
+            </div>
+          </div>
         </div>
-
       </div>
-      
     </div>
-
-  
