@@ -1,0 +1,126 @@
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.border {
+    background-color: #f0f0f0;
+    padding: 40px;
+    margin-top: 20px;
+    width: fit-content;
+    width: 95%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.year-month-container {
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px; /* Aumenta o espaço abaixo do conteúdo do ano */
+    box-sizing: border-box;
+    width: 260px;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 0px;
+    overflow:auto;
+    
+}
+
+.section {
+    margin-bottom: 30px; /* Adiciona espaço abaixo da seção de ano */
+  }
+
+select#year {
+    width: 100%; /* Define a largura da caixa de seleção do ano para 100% da largura disponível */
+    padding: 2px; /* Adiciona um pouco de preenchimento interno para estética */
+  }
+
+
+.ranking-container {
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #fff; /* Borda branca */
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 30px; /* Aumenta o espaço acima do conteúdo */
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+    width: 1475px; /* Aumenta a largura fixa */
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.summary {
+    display: flex;
+    width: 100%; /* Para ocupar a largura total do contêiner */
+    margin-top: 10px; /* Diminua o espaço superior se necessário */
+    justify-content: space-between; /* Espaçamento entre colunas */
+}
+
+.summary-column {
+    display: flex;
+    flex-direction: column;
+    width: 48%; /* Ajusta a largura de cada coluna */
+    gap: 8px; /* Espaço entre os itens de resumo na vertical */
+}
+
+.summary-itemm {
+    padding: 20px;
+    text-align: center;
+}
+
+.summary-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+}
+
+.summary-itemm .value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px; /* Aumenta o espaço entre o texto e o valor */
+}
+
+.summary-item .value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+canvas {
+    width: 1100px !important; 
+    height: 300px !important;
+}
+
+.chart-section {
+    border: 1px solid #ddd; /* Adiciona a borda */
+    border-radius: 5px; /* Adiciona cantos arredondados */
+    width: 100%; /* Garante que ocupe toda a largura do container */
+    margin: 0 auto 15px auto; /* Centraliza o elemento e adiciona espaço inferior */
+    text-align: center;
+}
+
+.chart-content{
+    display: flex;
+    justify-content: center;
+
+}

@@ -9,6 +9,8 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
   styleUrls: ['./tab3-div.component.scss']
 })
 export class Tab3DivComponent implements AfterViewInit {
+  chart: Chart | undefined;
+
   ngAfterViewInit() {
     this.createChart();
   }
@@ -16,7 +18,7 @@ export class Tab3DivComponent implements AfterViewInit {
   createChart() {
     Chart.register(ChartDataLabels);
 
-    const ctx = document.getElementById('rankingChart') as HTMLCanvasElement; // ID corrigido
+    const ctx = document.getElementById('rankingtrans') as HTMLCanvasElement; 
 
     if (!ctx) {
       console.error('Canvas element not found');
@@ -25,44 +27,49 @@ export class Tab3DivComponent implements AfterViewInit {
 
     const data: ChartData<'bar'> = {
       labels: [
-        'FETCEMG - 1°', 'FETRABASE - 2°', 'FETRANSPORTES - 3°', 'FETRAMAZ - 4°',
-        'FETRANCESC - 5°', 'FETRAM - 6°', 'FETCESP - 7°', 'FETACMG - 8°',
-        'SEMOVE - 9°', 'FETCESP - 10°', 'FETRACAN - 11°', 'FETRANSUL - 12°',
-        'FENATAC - 13°', 'FETRASUL - 14°', 'FETRANSCARGA - 15°', 'FETRANSPAR - 16°',
-        'FETERGS - 17°', 'FETRALSE - 18°', 'FETRAMAR - 19°', 'FEPASC - 20°',
-        'FECAMRS - 21°', 'FETRANS - 22°', 'FETRONOR - 23°', 'FETRONORTE - 24°'
+        'FETRANSPORTES - 1°', 'FETRACAN - 2°', 'FETCESP - 3°', 'FETRANSPAR - 4°',
+        'FETCEMG - 5°', 'FETRAMAZ - 6°', 'FENATAC - 7°', 'FETRANSCARGA - 8°',
+        'FETRANSUL - 9°', 'FETRABASE - 10°', 'FETRANS - 11°', 'FECAMRS - 12°',
+        'FETCESP - 13°', 'FETRAM - 14°', 'FETRONOR - 15°', 'FETRANSPAR - 16°',
+        'FEPASC - 17°', 'FETRAMAR - 18°', 'FETRALSE - 19°', 'SEMOVE - 20°',
+        'FETRANSCARGA - 21°', 'FECAMRS - 22°', 'FETRAMAR - 23°', 'FETRASUL - 24°'
       ],
       datasets: [{
-        label: 'Percentual da Meta Atingida',
+        label: 'Número de Transportadores Atendidos',
         data: [
-          203.2, 180.9, 169.5, 156.9, 133.6, 132.2, 132.2, 127.3,
-          127.3, 126.1, 123.9, 122.3, 122.0, 119.6, 119.2, 118.5,
-          115.4, 114.5, 101.2, 101.1, 101.1, 101.1, 97.1, 38.9
+          591, 510, 507, 490, 482, 450, 428, 413,
+          411, 407, 400, 391, 375, 363, 270, 221,
+          185, 140, 112, 99, 75, 54, 33, 28
         ],
-        backgroundColor: (context) => {
-          const value = context.raw as number;
-          if (value >= 120) {
-            return '#f0ce60'; // Amarelo
-          } else if (value >= 100) {
-            return '#1c5de9'; // Azul
-          } else if (value >= 50) {
-            return '#a5e01b'; // Verde
-          } else {
-            return '#a12ac5'; // Roxo
-          }
-        },
+        backgroundColor: '#007bff', // Azul
+        barThickness: 20, // Aumenta a grossura das barras
       }]
     };
 
     const options: ChartOptions<'bar'> = {
       indexAxis: 'y',
+      layout: {
+        padding: {
+          left: 20,
+          right: 20,
+          top: 20,
+          bottom: 20
+        }
+      },
       scales: {
         x: {
-          display: false, // Remove o eixo X
+          display: false, // Oculta o eixo X e suas grades
         },
         y: {
+          display: true,
           grid: {
             display: false // Remove as grades da escala Y
+          },
+          ticks: {
+            autoSkip: false, // Não pula automaticamente os rótulos
+            font: {
+              size: 12
+            }
           }
         }
       },
@@ -72,18 +79,21 @@ export class Tab3DivComponent implements AfterViewInit {
         },
         tooltip: {
           callbacks: {
-            label: (context) => `${context.raw}%`
+            label: (context) => `${context.raw}`
           }
         },
         datalabels: {
           anchor: 'end',
           align: 'end',
-          formatter: (value) => `${value}%`,
+          formatter: (value) => `${value}`,
           color: '#000',
           font: {
             weight: 'bold'
           }
         }
+      },
+      animation: {
+        duration: 2000 // Define a duração da animação para 2 segundos
       }
     };
 
@@ -93,6 +103,19 @@ export class Tab3DivComponent implements AfterViewInit {
       options: options
     };
 
-    new Chart(ctx, config);
+    this.chart = new Chart(ctx, config);
+  }
+
+  onYearMonthSegmentChange() {
+    this.chart?.destroy();
+    this.createChart();
+  }
+
+  selectAllMonths(event: any) {
+    const checkboxes = document.querySelectorAll('input[name="month"]');
+    checkboxes.forEach((checkbox) => {
+      (checkbox as HTMLInputElement).checked = event.target.checked;
+    });
+    this.onYearMonthSegmentChange();
   }
 }

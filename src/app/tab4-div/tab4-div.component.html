@@ -1,1 +1,178 @@
-<p>tab4-div works!</p>
+<div class="tab-container">
+  <div class="container">
+    <div class="header">
+      <h1>Comparativo de transportadores atendidos</h1>
+    </div>
+  </div>
+  <div class="border">
+    <div class="year-month-container">
+      <div class="section">
+        <div>Ano</div>
+        <select id="year" name="year" (change)="onYearChange($event)">
+          <option value="2023">2023</option>
+          <option value="2024" selected>2024</option>
+        </select>
+      </div>
+      <div class="section2">
+        <div class="section-title">Segmento, Federação</div>
+        <div class="checkbox-label">
+          <input type="checkbox" id="select-all" (click)="selectAllSegments($event)">
+          <label for="select-all">Selecionar tudo</label>
+        </div>
+
+        <details>
+          <summary><input type="checkbox" id="autonomo" (click)="onSegmentChange($event)"> <label for="autonomo">Autônomo</label></summary>
+          <div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fecamrs" name="segment" value="fecamrs" (click)="onSegmentChange($event)">
+              <label for="fecamrs">FECAMRS</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetacmg" name="segment" value="fetacmg" (click)="onSegmentChange($event)">
+              <label for="fetacmg">FETACMG</label>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary><input type="checkbox" id="cargas" (click)="onSegmentChange($event)"> <label for="cargas">Cargas</label></summary>
+          <div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fenatac" name="segment" value="fenatac" (click)="onSegmentChange($event)">
+              <label for="fenatac">FENATAC</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetcemg" name="segment" value="fetcemg" (click)="onSegmentChange($event)">
+              <label for="fetcemg">FETCEMG</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetcesp" name="segment" value="fetcesp" (click)="onSegmentChange($event)">
+              <label for="fetcesp">FETCESP</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetracan" name="segment" value="fetracan" (click)="onSegmentChange($event)">
+              <label for="fetracan">FETRACAN</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetramaz" name="segment" value="fetramaz" (click)="onSegmentChange($event)">
+              <label for="fetramaz">FETRAMAZ</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetrancesc" name="segment" value="fetrancesc" (click)="onSegmentChange($event)">
+              <label for="fetrancesc">FETRANCESC</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetranscarga" name="segment" value="fetranscarga" (click)="onSegmentChange($event)">
+              <label for="fetranscarga">FETRANCARGA</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetranspar" name="segment" value="fetranspar" (click)="onSegmentChange($event)">
+              <label for="fetranspar">FETRANSPAR</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetransul" name="segment" value="fetransul" (click)="onSegmentChange($event)">
+              <label for="fetransul">FETRANSUL</label>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary><input type="checkbox" id="misto" (click)="onSegmentChange($event)"> <label for="misto">Misto</label></summary>
+          <div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetrabase" name="segment" value="fetrabase" (click)="onSegmentChange($event)">
+              <label for="fetrabase">FETRABASE</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetransportes" name="segment" value="fetransportes" (click)="onSegmentChange($event)">
+              <label for="fetransportes">FETRANSPORTES</label>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary><input type="checkbox" id="passageiros" (click)="onSegmentChange($event)"> <label for="passageiros">Passageiros</label></summary>
+          <div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fepasc" name="segment" value="fepasc" (click)="onSegmentChange($event)">
+              <label for="fepasc">FEPASC</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetergs" name="segment" value="fetergs" (click)="onSegmentChange($event)">
+              <label for="fetergs">FETERGS</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetpesp" name="segment" value="fetpesp" (click)="onSegmentChange($event)">
+              <label for="fetpesp">FETPESP</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetral" name="segment" value="fetral" (click)="onSegmentChange($event)">
+              <label for="fetral">FETRAL</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetram" name="segment" value="fetram" (click)="onSegmentChange($event)">
+              <label for="fetram">FETRAM</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetramar" name="segment" value="fetramar" (click)="onSegmentChange($event)">
+              <label for="fetramar">FETRAMAR</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetranorte" name="segment" value="fetranorte" (click)="onSegmentChange($event)">
+              <label for="fetranorte">FETRANORTE</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetrans" name="segment" value="fetrans" (click)="onSegmentChange($event)">
+              <label for="fetrans">FETRANS</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetrasul" name="segment" value="fetrasul" (click)="onSegmentChange($event)">
+              <label for="fetrasul">FETRASUL</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="fetronor" name="segment" value="fetronor" (click)="onSegmentChange($event)">
+              <label for="fetronor">FETRONOR</label>
+            </div>
+            <div class="checkbox-label">
+              <input type="checkbox" id="semove" name="segment" value="semove" (click)="onSegmentChange($event)">
+              <label for="semove">SEMOVE</label>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="ranking-container">
+      <div class="chart-section">
+        <div class="chart-header">
+          <h5>Número de transportadores atendidos - Comparativo entre 2023 e 2024</h5>
+        </div>
+        <div class="chart-content">
+          <canvas id="barchart"></canvas>
+        </div>
+      </div>
+    
+      <div class="summary">
+        <div class="summary-column">
+          <div class="summary-itemm">
+            <div class="label">Número de novos transportadores atendidos de janeiro a junho de 2024 em relação a 2023</div>
+            <div class="value">1.948 (29.2%)</div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Do total de transportadores atendidos em 2024, 29,2% são novos em relação ao ano anterior.</div>
+          </div>
+        </div>
+        <div class="summary-column">
+          <div class="summary-item">
+            <div class="label">Número de transportadores atendidos - 2023</div>
+            <div class="value">9.100</div>
+          </div>
+          <div class="summary-item">
+            <div class="label">Número de transportadores atendidos - De janeiro a junho de 2024</div>
+            <div class="value">6.669</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

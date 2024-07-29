@@ -9,7 +9,14 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
   styleUrls: ['./tab1-div.component.scss']
 })
 export class Tab1DivComponent implements AfterViewInit {
+  rankingChart: Chart | undefined;
+
   ngAfterViewInit() {
+    this.createChart();
+    this.createPercentageChart();
+  }
+
+  onYearMonthChange() {
     this.createChart();
     this.createPercentageChart();
   }
@@ -18,6 +25,10 @@ export class Tab1DivComponent implements AfterViewInit {
     Chart.register(ChartDataLabels);
 
     const ctx = document.getElementById('rankingChart') as HTMLCanvasElement;
+
+    if (this.rankingChart) {
+      this.rankingChart.destroy();
+    }
 
     const data: ChartData<'bar'> = {
       labels: [
@@ -35,16 +46,17 @@ export class Tab1DivComponent implements AfterViewInit {
           127.3, 126.1, 123.9, 122.3, 122.0, 119.6, 119.2, 118.5,
           115.4, 114.5, 101.2, 101.1, 101.1, 101.1, 97.1, 38.9
         ],
+        barThickness: 15, // Aumenta a grossura das barras
         backgroundColor: (context) => {
           const value = context.raw as number;
           if (value >= 120) {
-            return '#f0ce60'; // Amarelo
+            return '#f0ce60'; 
           } else if (value >= 100) {
-            return '#1c5de9'; // Azul
+            return '#1c5de9'; 
           } else if (value >= 50) {
-            return '#a5e01b'; // Verde
+            return '#a5e01b'; 
           } else {
-            return '#a12ac5'; // Roxo
+            return '#a12ac5';
           }
         },
       }]
@@ -54,11 +66,11 @@ export class Tab1DivComponent implements AfterViewInit {
       indexAxis: 'y',
       scales: {
         x: {
-          display: false, // Remove o eixo X
+          display: false, 
         },
         y: {
           grid: {
-            display: false // Remove as grades da escala Y
+            display: false 
           }
         }
       },
@@ -89,7 +101,7 @@ export class Tab1DivComponent implements AfterViewInit {
       options: options
     };
 
-    new Chart(ctx, config);
+    this.rankingChart = new Chart(ctx, config);
   }
 
   createPercentageChart() {
@@ -101,7 +113,7 @@ export class Tab1DivComponent implements AfterViewInit {
       labels: ['Atingiram ou superaram a meta', 'Não atingiram a meta'],
       datasets: [
         {
-          data: [95.8, 4.2], // Representando as porcentagens
+          data: [95.8, 4.2], 
           backgroundColor: ['#f0ce60', '#a12ac5'],
           borderWidth: 0,
         },
@@ -148,7 +160,7 @@ export class Tab1DivComponent implements AfterViewInit {
       type: 'doughnut',
       data,
       options,
-      plugins: [ChartDataLabels, percentagePlugin] // Adicione o plugin personalizado aqui
+      plugins: [ChartDataLabels, percentagePlugin] 
     } as ChartConfiguration<'doughnut'>);
   }
 }
