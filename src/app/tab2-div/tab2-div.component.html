@@ -1,44 +1,49 @@
+<div>
 <div class="container">
+    <div class="header">
+      <h1>Ranking por Federação</h1>
+      <h6>AVALIAÇÕES VEICULARES AMBIENTAIS POR UNIDADE OPERACIONAL</h6>
+    </div>
+    <div class="date-picker">
+      <label for="date">Data de consulta</label>
+      <input type="date" id="date" [(ngModel)]="selectedDate" class="date-input" (change)="updateData(selectedDate)">
+    </div>
     <div class="row">
-      <div class="col" *ngFor="let section of sections">
+      <div class="col-6" *ngFor="let section of sections">
         <div class="card">
           <div class="card-header">
             <i [class]="section.icon"></i>
             <span>{{ section.title }}</span>
           </div>
           <div class="card-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Federação</th>
-                  <th>Aferições por unidade operacional</th>
-                  <th>Percentual da meta atingido</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let federation of section.federations; let i = index">
-                  <td>
-                    <span [ngClass]="{'fa-medal gold': i === 0, 'fa-medal silver': i === 1, 'fa-medal bronze': i === 2}"></span>
-                    {{ federation.name }}
-                  </td>
-                  <td>
-                    <div>{{ federation.value }}</div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" 
-                           [style.width.%]="(federation.value / section.maxValue) * 100" 
-                           [attr.aria-valuenow]="(federation.value / section.maxValue) * 100"
-                           aria-valuemin="0" 
-                           aria-valuemax="100" 
-                           [ngClass]="section.progressBarClass">
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    {{ federation.percentage }}%
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="header-row">
+              <div class="header-cell">Federação</div>
+              <div class="header-cell">Aferições por unidade operacional</div>
+              <div class="header-cell">Percentual da meta atingido</div>
+            </div>
+            <div *ngFor="let federation of section.federations; let i = index" class="body-row">
+              <div class="body-cell federation-name">
+                {{ federation.name }}
+              </div>
+              <div class="body-cell">
+                <i *ngIf="i === 0" class="fas fa-medal gold"></i>
+                <i *ngIf="i === 1" class="fas fa-medal silver"></i>
+                <i *ngIf="i === 2" class="fas fa-medal bronze"></i>
+                <div>{{ federation.value }}</div>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" 
+                       [style.width.%]="(federation.value / section.maxValue) * 100" 
+                       [attr.aria-valuenow]="(federation.value / section.maxValue) * 100"
+                       aria-valuemin="0" 
+                       aria-valuemax="100" 
+                       [ngClass]="section.progressBarClass">
+                  </div>
+                </div>
+              </div>
+              <div class="body-cell">
+                {{ federation.percentage }}%
+              </div>
+            </div>
           </div>
         </div>
       </div>

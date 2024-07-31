@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';  // Adicione isso
 
 @Component({
   selector: 'app-tab2-div',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './tab2-div.component.html',
   styleUrls: ['./tab2-div.component.scss']
 })
@@ -14,7 +15,7 @@ export class Tab2DivComponent implements OnInit {
   sections: any[] = [
     {
       title: 'Passageiro',
-      icon: 'fa fa-bus',
+      icon: 'fas fa-bus',
       federations: [
         { name: 'FETRAM', value: 397.1, percentage: 132.8 },
         { name: 'SEMOVE', value: 379.6, percentage: 127.0 },
@@ -25,7 +26,7 @@ export class Tab2DivComponent implements OnInit {
     },
     {
       title: 'Cargas',
-      icon: 'fa fa-truck',
+      icon: 'fas fa-truck',
       federations: [
         { name: 'FETCEMG', value: 384.0, percentage: 203.2 },
         { name: 'FETRAMAZ', value: 296.5, percentage: 156.9 },
@@ -36,20 +37,22 @@ export class Tab2DivComponent implements OnInit {
     },
     {
       title: 'Misto',
-      icon: 'fa fa-bus-alt',
+      icon: 'fas fa-bus-alt',
       federations: [
         { name: 'FETRABASE', value: 428.7, percentage: 180.9 },
-        { name: 'FETRANSPORTES', value: 402.7, percentage: 169.9 }
+        { name: 'FETRANSPORTES', value: 402.7, percentage: 169.9 },
+        { name: 'FETCESP', value: 400.7, percentage: 161.9 }
       ],
       maxValue: 450,
       progressBarClass: 'bg-warning'
     },
     {
       title: 'Autônomo',
-      icon: 'fa fa-user',
+      icon: 'fas fa-user',
       federations: [
         { name: 'FETACMG', value: 238.0, percentage: 127.3 },
-        { name: 'FECAMRS', value: 189.0, percentage: 101.1 }
+        { name: 'FECAMRS', value: 189.0, percentage: 101.1 },
+        { name: 'FEPASC', value: 153.7, percentage: 99.9 }
       ],
       maxValue: 250,
       progressBarClass: 'bg-danger'
@@ -62,5 +65,7 @@ export class Tab2DivComponent implements OnInit {
 
   updateData(selectedDate: string) {
     this.selectedDate = selectedDate;
+    // Update sections data based on selectedDate
+    // This could involve making an API call or filtering existing data
   }
 }
