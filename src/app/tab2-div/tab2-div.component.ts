@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';  // Adicione isso
 
+
 @Component({
   selector: 'app-tab2-div',
   standalone: true,
@@ -14,21 +15,21 @@ export class Tab2DivComponent implements OnInit {
 
   sections: any[] = [
     {
-      title: 'Passageiro',
+      title: 'PASSAGEIRO',
       icon: 'fas fa-bus',
       federations: [
-        { name: 'FETRAM', value: 397.1, percentage: 132.8 },
-        { name: 'SEMOVE', value: 379.6, percentage: 127.0 },
-        { name: 'FETESP', value: 377.0, percentage: 126.1 }
+        { name: 'FETRAM', value: 392.5, percentage: 132.8 },
+        { name: 'SEMOVE', value: 379.6, percentage: 127.1 },
+        { name: 'FETESP', value: 377.1, percentage: 126.1 }
       ],
       maxValue: 400,
       progressBarClass: 'bg-success'
     },
     {
-      title: 'Cargas',
+      title: 'CARGAS',
       icon: 'fas fa-truck',
       federations: [
-        { name: 'FETCEMG', value: 384.0, percentage: 203.2 },
+        { name: 'FETCEMG', value: 384.1, percentage: 203.2 },
         { name: 'FETRAMAZ', value: 296.5, percentage: 156.9 },
         { name: 'FETRANCESC', value: 252.5, percentage: 133.6 }
       ],
@@ -36,7 +37,7 @@ export class Tab2DivComponent implements OnInit {
       progressBarClass: 'bg-primary'
     },
     {
-      title: 'Misto',
+      title: 'MISTO',
       icon: 'fas fa-bus-alt',
       federations: [
         { name: 'FETRABASE', value: 428.7, percentage: 180.9 },
@@ -47,11 +48,11 @@ export class Tab2DivComponent implements OnInit {
       progressBarClass: 'bg-warning'
     },
     {
-      title: 'Autônomo',
+      title: 'AUTÔNOMO',
       icon: 'fas fa-user',
       federations: [
-        { name: 'FETACMG', value: 238.0, percentage: 127.3 },
-        { name: 'FECAMRS', value: 189.0, percentage: 101.1 },
+        { name: 'FETACMG', value: 238.3, percentage: 127.3 },
+        { name: 'FECAMRS', value: 189.1, percentage: 101.1 },
         { name: 'FEPASC', value: 153.7, percentage: 99.9 }
       ],
       maxValue: 250,

@@ -1,52 +1,59 @@
-<div>
 <div class="container">
-    <div class="header">
+  <div class="header">
+    <div class="header-titles">
       <h1>Ranking por Federação</h1>
       <h6>AVALIAÇÕES VEICULARES AMBIENTAIS POR UNIDADE OPERACIONAL</h6>
     </div>
-    <div class="date-picker">
-      <label for="date">Data de consulta</label>
-      <input type="date" id="date" [(ngModel)]="selectedDate" class="date-input" (change)="updateData(selectedDate)">
-    </div>
-    <div class="row">
-      <div class="col-6" *ngFor="let section of sections">
-        <div class="card">
-          <div class="card-header">
-            <i [class]="section.icon"></i>
-            <span>{{ section.title }}</span>
+  </div>
+  <div class="date-picker">
+    <label for="date">Data de consulta</label>
+    <input type="month" id="date" [(ngModel)]="selectedDate" class="date-input" (change)="updateData(selectedDate)">
+  </div>
+  <div class="row">
+    <div class="col-6" *ngFor="let section of sections">
+      <div class="card">
+        <div class="card-header">
+          <i [class]="section.icon" class="card-icon"></i>
+          <span class="card-title">{{ section.title }}</span>
+        </div>
+        <div class="card-body">
+          <div class="header-row">
+            <div class="header-cell">Federação</div>
+            <div class="header-cell">Aferições por unidade operacional</div>
+            <div class="header-cell right-align">Percentual da meta atingido</div>
           </div>
-          <div class="card-body">
-            <div class="header-row">
-              <div class="header-cell">Federação</div>
-              <div class="header-cell">Aferições por unidade operacional</div>
-              <div class="header-cell">Percentual da meta atingido</div>
+          <div *ngFor="let federation of section.federations; let i = index" class="body-row">
+            <div class="body-cell federation-name">
+              {{ federation.name }}
             </div>
-            <div *ngFor="let federation of section.federations; let i = index" class="body-row">
-              <div class="body-cell federation-name">
-                {{ federation.name }}
-              </div>
-              <div class="body-cell">
-                <i *ngIf="i === 0" class="fas fa-medal gold"></i>
-                <i *ngIf="i === 1" class="fas fa-medal silver"></i>
-                <i *ngIf="i === 2" class="fas fa-medal bronze"></i>
-                <div>{{ federation.value }}</div>
+            <div class="body-cell">
+              <div class="progress-container">
+                <div class="medal-icon">
+                  <i *ngIf="i === 0" class="fa-solid fa-1"></i>
+                  <i *ngIf="i === 1" class="fa-solid fa-2"></i>
+                  <i *ngIf="i === 2" class="fa-solid fa-3"></i>
+                </div>
                 <div class="progress">
-                  <div class="progress-bar" role="progressbar" 
-                       [style.width.%]="(federation.value / section.maxValue) * 100" 
-                       [attr.aria-valuenow]="(federation.value / section.maxValue) * 100"
-                       aria-valuemin="0" 
-                       aria-valuemax="100" 
-                       [ngClass]="section.progressBarClass">
+                  <div class="progress-bar" role="progressbar"
+                    [style.width.%]="(federation.value / section.maxValue) * 100"
+                    [attr.aria-valuenow]="(federation.value / section.maxValue) * 100" aria-valuemin="0"
+                    aria-valuemax="100" [ngClass]="section.progressBarClass">            
+
+                    
+                  </div>
+                  <div class="data-progress-bar">
+                    
+                    {{ federation.value }}
                   </div>
                 </div>
               </div>
-              <div class="body-cell">
-                {{ federation.percentage }}%
-              </div>
+            </div>
+            <div class="body-cell">
+              {{ federation.percentage }}%
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
