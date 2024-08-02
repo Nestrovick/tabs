@@ -63,20 +63,20 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  background-color: #28a745;
+  background-color: #f0f0f0;
   padding: 10px;
   box-sizing: border-box;
 }
 
 .col-6 {
-  flex: 1 0 47%; /* Aumentar a largura dos cartões diminuindo o espaço verde entre eles */
+  flex: 1 0 47%;
   margin: 10px;
   box-sizing: border-box;
 }
 
 .card {
   background-color: #fff;
-  padding: 20px; /* Aumentar o tamanho dos cartões */
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: calc(100% - 20px);
@@ -108,7 +108,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 13px;
-  margin-bottom: 22px; /* Adicionar espaço abaixo dos títulos */
+  margin-bottom: 22px;
 }
 
 .header-cell {
@@ -124,7 +124,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px; /* Aumentar o espaço entre as barras de progresso */
+  margin-bottom: 10px;
   font-size: 14px;
 }
 
@@ -169,7 +169,7 @@
   background: none !important;
 }
 
-.data-progress-bar{
+.data-progress-bar {
   position: absolute;
   text-align: center;
   width: 100%;
@@ -181,22 +181,22 @@
 }
 
 .bg-success {
-  background-color: #c5a12b !important;
+  background-color: #f0ce60 !important;
 }
 
 .bg-primary {
-  background-color: #007bff !important;
+  background-color: #1c5de9 !important;
 }
 
 .bg-warning {
-  background-color: #ffc107 !important;
+  background-color: #a5e01b !important;
 }
 
 .bg-danger {
-  background-color: #dc3545 !important;
+  background-color: #a12ac5 !important;
 }
 
 .header-cell.right-align {
   text-align: left;
-  margin-left: 20px; /* Ajuste a margem para posicionar corretamente o título */
+  margin-left: 20px;
 }

@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';  // Adicione isso
-
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tab2-div',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './tab2-div.component.html',
   styleUrls: ['./tab2-div.component.scss']
 })
-export class Tab2DivComponent implements OnInit {
+export class Tab2DivComponent implements AfterViewInit {
   selectedDate: string = '';
+  sections: any[] = [];
 
-  sections: any[] = [
+  initialData = [
     {
       title: 'PASSAGEIRO',
       icon: 'fas fa-bus',
@@ -62,11 +62,33 @@ export class Tab2DivComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngAfterViewInit(): void {
+    // Define a data selecionada inicialmente para o mês e ano atuais
+    const currentDate = new Date();
+    this.selectedDate = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}`;
+    this.updateData(this.selectedDate);
+  }
 
-  updateData(selectedDate: string) {
-    this.selectedDate = selectedDate;
-    // Update sections data based on selectedDate
-    // This could involve making an API call or filtering existing data
+  onYearMonthChange(): void {
+    // Simula um atraso para a busca de dados
+    setTimeout(() => {
+      this.updateData(this.selectedDate);
+    }, 0);
+  }
+
+  updateData(selectedDate: string): void {
+    // Atualiza as seções sem modificar os valores originais
+    this.sections = this.initialData.map(section => ({
+      ...section,
+      federations: section.federations.map(federation => ({
+        ...federation,
+        value: this.formatNumber(federation.value), // Mantém os valores originais
+        percentage: this.formatNumber(federation.percentage) // Mantém os percentuais originais
+      }))
+    }));
+  }
+
+  formatNumber(value: number): string {
+    return value.toFixed(2); // Formata o número para 2 casas decimais
   }
 }
