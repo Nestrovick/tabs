@@ -31,7 +31,7 @@ export class Tab2DivComponent implements AfterViewInit {
       federations: [
         { name: 'FETCEMG', value: 384.1, percentage: 203.2 },
         { name: 'FETRAMAZ', value: 296.5, percentage: 156.9 },
-        { name: 'FETRANCESC', value: 252.5, percentage: 133.6 }
+        { name: 'FETRANCESC', value: 271.5, percentage: 133.6 }
       ],
       maxValue: 400,
       progressBarClass: 'bg-primary'
@@ -53,7 +53,7 @@ export class Tab2DivComponent implements AfterViewInit {
       federations: [
         { name: 'FETACMG', value: 238.3, percentage: 127.3 },
         { name: 'FECAMRS', value: 189.1, percentage: 101.1 },
-        { name: 'FEPASC', value: 153.7, percentage: 99.9 }
+        { name: 'FEPASC', value: 169.7, percentage: 99.9 }
       ],
       maxValue: 250,
       progressBarClass: 'bg-danger'
